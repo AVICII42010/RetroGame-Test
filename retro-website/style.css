@@ -1,7 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  background: #02030a url('https://www.transparenttextures.com/patterns/stardust.png');
+  background-color: #02030a;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+    radial-gradient(circle at 80% 35%, rgba(0, 204, 255, 0.28) 1px, transparent 1px),
+    radial-gradient(circle at 45% 80%, rgba(255, 0, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(180deg, #02030a 0%, #060018 100%);
+  background-size: 170px 170px, 220px 220px, 140px 140px, auto;
   color: #39ff14;
   font-family: "Courier New", "Comic Sans MS", monospace;
 }
@@ -19,9 +25,16 @@ a:hover {
   width: 900px;
   margin: 20px auto;
   border: 4px double #00ccff;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.88);
   box-shadow: 0 0 18px #00ccff;
   padding: 10px;
+}
+
+.top-meta {
+  text-align: center;
+  font-size: 13px;
+  color: #bbbbff;
+  margin: 0 0 8px;
 }
 
 .header-blink {
@@ -30,10 +43,18 @@ a:hover {
   font-size: 38px;
   text-shadow: 0 0 8px #00ccff;
   animation: blink 1s steps(1) infinite;
+  margin: 8px 0;
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink-inline {
+  animation: blink 1s steps(1) infinite;
+  color: #ffee00;
 }
 
 .layout-table {
@@ -65,6 +86,11 @@ a:hover {
   padding: 4px 10px;
 }
 
+.counter-row {
+  margin-top: 8px;
+  text-align: center;
+}
+
 .section-title {
   color: #00ccff;
   border-bottom: 1px dotted #ff66ff;
@@ -74,6 +100,17 @@ a:hover {
 .gif-row img {
   margin: 4px;
   border: 1px solid #fff;
+  background: #02020a;
+}
+
+.badges {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.badges img {
+  margin: 2px;
+  border: 1px solid #888;
 }
 
 .bullet-list {

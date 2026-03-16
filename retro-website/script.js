@@ -1,13 +1,17 @@
 (function () {
+  function getSafeText(value) {
+    return String(value || '').replace(/[<>]/g, '');
+  }
+
   function updateCounter() {
     var key = 'retro_site_visits';
     var current = Number(localStorage.getItem(key) || '0');
     current += 1;
     localStorage.setItem(key, String(current));
 
-    var counterEl = document.getElementById('visitor-count');
-    if (counterEl) {
-      counterEl.textContent = String(current).padStart(6, '0');
+    var counterNodes = document.querySelectorAll('[data-visitor-count]');
+    for (var i = 0; i < counterNodes.length; i++) {
+      counterNodes[i].textContent = String(current).padStart(6, '0');
     }
   }
 
@@ -16,24 +20,40 @@
     if (!listEl) return;
 
     var entries = JSON.parse(localStorage.getItem('retro_guestbook_entries') || '[]');
+    listEl.innerHTML = '';
+
     if (!entries.length) {
-      listEl.innerHTML = '<p class="small-note">No messages yet. Be the first netizen to sign!</p>';
+      var empty = document.createElement('p');
+      empty.className = 'small-note';
+      empty.textContent = 'No messages yet. Be the first netizen to sign!';
+      listEl.appendChild(empty);
       return;
     }
 
-    listEl.innerHTML = entries
-      .map(function (entry) {
-        return (
-          '<div class="entry"><strong>' +
-          entry.name +
-          '</strong> <span class="small-note">[' +
-          entry.time +
-          ']</span><br>' +
-          entry.message +
-          '</div>'
-        );
-      })
-      .join('');
+    for (var i = 0; i < entries.length; i++) {
+      var entry = entries[i];
+
+      var container = document.createElement('div');
+      container.className = 'entry';
+
+      var strong = document.createElement('strong');
+      strong.textContent = getSafeText(entry.name);
+
+      var stamp = document.createElement('span');
+      stamp.className = 'small-note';
+      stamp.textContent = ' [' + getSafeText(entry.time) + ']';
+
+      var br = document.createElement('br');
+      var message = document.createElement('span');
+      message.textContent = getSafeText(entry.message);
+
+      container.appendChild(strong);
+      container.appendChild(stamp);
+      container.appendChild(br);
+      container.appendChild(message);
+
+      listEl.appendChild(container);
+    }
   }
 
   function handleGuestbookSubmit() {
@@ -55,6 +75,7 @@
         message: message,
         time: new Date().toLocaleString()
       });
+
       localStorage.setItem('retro_guestbook_entries', JSON.stringify(entries.slice(0, 20)));
       form.reset();
       renderGuestbook();
