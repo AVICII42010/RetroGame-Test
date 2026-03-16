@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #02030a url('https://www.transparenttextures.com/patterns/stardust.png');
+  color: #39ff14;
+  font-family: "Courier New", "Comic Sans MS", monospace;
+}
+
+a {
+  color: #00ccff;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #ff66ff;
+}
+
+.wrapper {
+  width: 900px;
+  margin: 20px auto;
+  border: 4px double #00ccff;
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 18px #00ccff;
+  padding: 10px;
+}
+
+.header-blink {
+  text-align: center;
+  color: #ff00ff;
+  font-size: 38px;
+  text-shadow: 0 0 8px #00ccff;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.layout-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.layout-table td,
+.layout-table th {
+  border: 2px solid #6633ff;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.nav-box {
+  background: #111733;
+  border: 2px dashed #39ff14;
+  text-align: center;
+  padding: 8px;
+}
+
+.counter {
+  font-size: 24px;
+  color: #ffee00;
+  letter-spacing: 2px;
+  background: #1a002a;
+  border: 2px inset #999;
+  display: inline-block;
+  padding: 4px 10px;
+}
+
+.section-title {
+  color: #00ccff;
+  border-bottom: 1px dotted #ff66ff;
+  margin-top: 0;
+}
+
+.gif-row img {
+  margin: 4px;
+  border: 1px solid #fff;
+}
+
+.bullet-list {
+  list-style: square;
+  padding-left: 20px;
+}
+
+.small-note {
+  color: #bbbbff;
+  font-size: 13px;
+}
+
+.guestbook-form input,
+.guestbook-form textarea {
+  width: 96%;
+  padding: 6px;
+  margin-bottom: 8px;
+  background: #02020a;
+  border: 1px solid #00ccff;
+  color: #39ff14;
+  font-family: "Courier New", monospace;
+}
+
+.guestbook-form button {
+  background: #1f2d99;
+  color: #fff;
+  border: 2px outset #ddd;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.entry {
+  border: 1px dashed #ff66ff;
+  padding: 8px;
+  margin-bottom: 8px;
+  background: #0f001f;
+}
+
+.footer-badge {
+  text-align: center;
+  margin-top: 12px;
+}

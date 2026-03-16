@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook - Cyber Retro Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <h1 class="header-blink">SIGN MY GUESTBOOK</h1>
+
+    <marquee behavior="scroll" direction="left">Leave your message after the beep... BEEP!</marquee>
+
+    <table class="layout-table">
+      <tr>
+        <td width="30%">
+          <div class="nav-box">
+            <p><a href="index.html">Home</a></p>
+            <p><a href="about.html">About Me</a></p>
+            <p><a href="links.html">Cool Links</a></p>
+            <p><a href="guestbook.html">Guestbook</a></p>
+          </div>
+        </td>
+        <td>
+          <h2 class="section-title">Drop a Message</h2>
+          <form id="guestbook-form" class="guestbook-form">
+            <label for="name">Name:</label><br>
+            <input id="name" type="text" maxlength="30" required><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" rows="4" maxlength="220" required></textarea><br>
+
+            <button type="submit">Post Message</button>
+          </form>
+
+          <h3 class="section-title">Guestbook Entries</h3>
+          <div id="guestbook-entries"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
